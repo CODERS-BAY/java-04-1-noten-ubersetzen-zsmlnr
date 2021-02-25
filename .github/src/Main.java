@@ -4,25 +4,24 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        for (int i = 1; i <= 5; i++) {
-            switch (i) {
-                case 1:
-                    System.out.println(i + " Very Good! ");
-                    break;
-                case 2:
-                    System.out.println(i + " Good! ");
-                    break;
-                case 3:
-                    System.out.println(i + " Satisfactory ");
-                    break;
-                case 4:
-                    System.out.println(i + " Sufficient ");
-                    break;
-                case 5:
-                    System.out.println(i + " Not Sufficient ");
-                    break;
-            }
-        }
+        Scanner grades= new Scanner(System.in);
+        int inputGrades= grades.nextInt();
+
+        String notes = switch (inputGrades){
+            case 1:
+                 yield "Very Good";
+            case 2:
+                 yield "Good";
+            case 3:
+                 yield "Satisfactory";
+            case 4:
+                 yield "Sufficient";
+            case 5:
+                 yield "Not sufficient";
+            default:
+                yield ("Unexpected value: "+ inputGrades);
+        };
+        System.out.println(notes);
 
 
     }
